@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-// const User = require('../models/users.js');
+const User = require('../models/user');
 
 // ROUTES
 // get index
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 router.post ('/new', (req, res) => {
   // finds user by id (based on current logged in user )
   User.findOneAndUpdate(
-    {_id: req.session.currentUser._id},
+    {_id: req.session.user._id},
     // uses $push method to push the req.body.message
     { $push: { messages: req.body.message } },
     // callback

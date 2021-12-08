@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const app=require('./app')
 const seed = require('./models/seed')
 const User = require('./models/user')
+const bcrypt = require('bcrypt')
 require('dotenv').config();
 
 const PORT = process.env.PORT||4000;
@@ -19,7 +20,15 @@ const resetDb = async() =>{
 mongoose.connect(MONGO_URL).then(async()=>{
   console.log('database connected')
   await resetDb();
+
+   // encrypts the given seed passwords
+  seed.forEach((user) => {
+  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
+  });
+
+  // seeds the data
   const seedData = await User.create(seed)
+
   console.log(seedData)
 
   app.listen(PORT, () => { console.log('listening on', PORT) });

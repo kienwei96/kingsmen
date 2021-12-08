@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/asset/css/login.css">
   </head>
   <body>
     <!-- ====== TOP HEADER BAR ====== -->
@@ -20,16 +21,7 @@
       <div class="header-nav">
         <ul>
           <li>
-              <a href="/room">fitting room three</a>
-          </li>
-          <!-- add your link to create a user here -->
-          <li>
-            <a href="/users/new">Create a user</a>
-          </li>
-          <!-- add your link to the log in page here -->
-          <li></li>
-          <!-- add your form button to log out here -->
-          <li>
+              <a href="/">Home</a>
           </li>
         </ul>
       </div>
@@ -38,18 +30,14 @@
     <div class="main">
         <div class="login-page">
             <div class="form">
-              <form class="register-form">
-                <input type="text" placeholder="name"/>
-                <input type="password" placeholder="password"/>
-                <input type="text" placeholder="email address"/>
-                <button>create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-              </form>
-              <form class="login-form">
-                <input type="text" placeholder="username"/>
-                <input type="password" placeholder="password"/>
-                <button>login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
+              <form class="login-form" action="/sessions" method="POST">
+                <input type="text" id="username" name="username" placeholder="Username" >
+                <input type="password" id="password" name="password" placeholder="Password">
+                <% if(!validation) { %>
+                  <p>Wrong Username or Password</p>
+                <% } %>
+                <input type="submit" value="Login"></input>
+                <p class="message">Not registered? <a href="/">Create an account</a></p>
               </form>
             </div>
           </div>

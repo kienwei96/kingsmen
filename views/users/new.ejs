@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Create New Account</title>
-    <link rel="stylesheet" href="/public/asset/css/new.css">
+    <meta charset="utf-8">
+    <title>Kingsman</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/asset/css/login.css">
   </head>
   <body>
-
-
-<form action="/kingsmen" method="post">
-
-    <h1>Create New Account</h1>
-  
-    <fieldset>
-      <legend><span class="number">1</span> Your basic info</legend>
-      <label for="name">Name:</label>
-      <input type="text" id="username" name="name" placeholder="Username" >
-  
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Password">
-
-    
-    </fieldset>
-    
-    <button type="submit">Sign Up</button>
-    
-  
-  </form>
-
-  <a href="/"><button style="width:400px; margin-left: 580px;">Back</button></a>
-  
-
+    <!-- ====== TOP HEADER BAR ====== -->
+    <div class="header">
+      <!-- title -->
+      <div class="header-title">
+        <img src="/public/img/logo.png" alt="kingsman logo">
+        <h1>KINGSMAN TAILOR</h1>
+      </div>
+      <!-- navigation -->
+      <div class="header-nav">
+        <ul>
+          <li>
+              <a href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ===== MAIN SPLASH PAGE CONTENT ===== -->
+    <div class="main">
+        <div class="login-page">
+            <div class="form">
+              <form class="login-form" action="/signup" method="post">
+                <input type="text" id="username" name="username" placeholder="Username" >
+                <input type="password" id="password" name="password" placeholder="Password">
+                <button>create</button>
+                <p class="message">Already registered? <a href="/login">Sign In</a></p>
+              </form>
+            </div>
+          </div>
+    </div>
   </body>
+</html>
